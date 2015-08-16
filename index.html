@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>GA totals to Slack</title>
+  
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+  <script src="script.js"></script>
+  <script src="script2.js"></script>
+  <script src="https://apis.google.com/js/client.js?onload=authorize"></script>
+</head>
+<body>
+
+<h1>Google Analytics to Slack</h1>
+<div id="accounts">
+	<p>Available accounts:</p>
+</div>
+<div>
+	<p>Available properties:</p>
+	<ol id="properties">
+	</ol>
+</div>
+<button id="auth-button" hidden>Authorize</button>
+<p><input type="text" id="profileID" name="profileID" value="default"></p>
+<p id="show-users"></p>
+<p id="show-pageviews"></p>
+<button id="send-button" onclick="sendtoslack(gapageviews, gausers)">Send to slack</button>
+<button id="refresh-button" onclick="getnewprofile()">Refresh</button>
+<script>
+  // Add an event listener to the 'auth-button'.
+  document.getElementById('auth-button').addEventListener('click', authorize);
+</script>
+</body>
+</html>
